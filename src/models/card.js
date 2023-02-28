@@ -3,16 +3,20 @@ const Schema = mongoose.Schema;
 const CardSchema = new Schema({
   front: {
     type: String,
+    required: true,
   },
   back: {
     type: String,
+    required: true,
   },
-  level: {
-    type: String,
+  categoryID: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Category",
+    default: null,
   },
-  newDate: {
-    type: Date,
-    default: Date.now,
+  edittable: {
+    type: Boolean,
+    default: false,
   },
 });
 
